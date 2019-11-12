@@ -20,11 +20,11 @@
 	
 	</div>
 	
-	
+
 	<div class="row">
 	
 		<!-- Display the product image -->
-		<div class="col-xs-12 col-sm-4">
+		<div class="col-xs-8 col-sm-4">
 		
 			<div class="thumbnail">
 							
@@ -33,11 +33,12 @@
 			</div>
 		
 		</div>
+		
 	
 		
 		<!-- Display the product description -->	
 		<div class="col-xs-12 col-sm-8">
-		
+		<h3>${userModel.fullName}</h3>
 			<h3>${product.name}</h3>
 			<hr/>
 			
@@ -47,7 +48,10 @@
 			<h4>Price: <strong> &#8377; ${product.unitPrice} /-</strong></h4>
 			<hr/>
 			
-			
+			<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="10" id="comment"></textarea>
+</div>
 			
 			<c:choose>
 				
@@ -72,13 +76,13 @@
 				<c:when test="${product.quantity < 1}">
 				
 					<a href="javascript:void(0)" class="btn btn-success disabled"><strike>
-					<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</strike></a>
+					<span class="glyphicon glyphicon-ok"></span> validate</strike></a>
 					
 				</c:when>
 				<c:otherwise>				
 				
 				<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">
-				<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+				<span class="glyphicon glyphicon-ok"></span> validate</a>
 				
 				
 				
@@ -97,7 +101,7 @@
 			
 
 			<a href="${contextRoot}/show/all/products" class="btn btn-warning">
-				Continue Shopping</a>
+				Continue </a>
 					
 		</div>
 

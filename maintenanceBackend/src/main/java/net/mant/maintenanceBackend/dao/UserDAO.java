@@ -3,7 +3,6 @@ package net.mant.maintenanceBackend.dao;
 import java.util.List;
 
 import net.mant.maintenanceBackend.dto.Address;
-import net.mant.maintenanceBackend.dto.Cart;
 import net.mant.maintenanceBackend.dto.User;
 
 public interface UserDAO {

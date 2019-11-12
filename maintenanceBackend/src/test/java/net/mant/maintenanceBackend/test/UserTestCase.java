@@ -20,7 +20,7 @@ public class UserTestCase {
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("net.kzn.shoppingbackend");
+		context.scan("net.mant.maintenanceBackend");
 		context.refresh();
 		
 		userDAO = (UserDAO) context.getBean("userDAO");

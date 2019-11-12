@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import maintenance.model.UserModel;
 import net.mant.maintenanceBackend.dao.CartLineDAO;
 import net.mant.maintenanceBackend.dao.ProductDAO;
-import net.mant.maintenanceBackend.dao.UserDAO;
 import net.mant.maintenanceBackend.dto.Cart;
 import net.mant.maintenanceBackend.dto.CartLine;
 import net.mant.maintenanceBackend.dto.Product;

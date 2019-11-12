@@ -18,6 +18,7 @@ public class ProductNotFoundException extends Exception implements Serializable 
 		this.message = System.currentTimeMillis() + ": " + message;
 	}
 
+	@Override
 	public String getMessage() {
 		return message;
 	}

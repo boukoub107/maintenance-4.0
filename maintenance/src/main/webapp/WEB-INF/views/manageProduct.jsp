@@ -190,8 +190,8 @@
 						<th>Brand</th>
 						<th>Qty. Avail</th>
 						<th>Unit Price</th>
-						<th>Activate</th>				
-						<th>Edit</th>
+						<th>Activatee</th>				
+						<th>Edite</th>
 					</tr>									
 				</tfoot>
 				

@@ -122,7 +122,7 @@ $(function() {
 									
 									if(userRole !== 'ADMIN') {
 										if (row.quantity < 1) {
-											str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+											str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-ok"></span></a>';
 										} else {
 	
 											str += '<a href="'
