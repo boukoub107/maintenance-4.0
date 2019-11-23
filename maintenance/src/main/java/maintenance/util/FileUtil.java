@@ -38,10 +38,14 @@ public class FileUtil {
 			//transfer the file to both the location
 			file.transferTo(new File(REAL_PATH + code + ".jpg"));
 			file.transferTo(new File(ABS_PATH + code + ".jpg"));
+			
+
 		}
 		catch(IOException ex) {
 			ex.printStackTrace();
 		}
+		System.out.println("4***********");
+		System.out.println(code);
 		return true;
 	}
 	
@@ -72,6 +76,8 @@ public class FileUtil {
 		catch(IOException ex) {
 			ex.printStackTrace();
 		}
+		System.out.println("4***********");
+		System.out.println(code);
 	}
 	
 }

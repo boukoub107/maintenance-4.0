@@ -52,7 +52,17 @@ public class Category implements Serializable {
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
+				+ ", PDFURL=" + PDFURL
 				+ ", active=" + active + "]";
+	}
+
+
+
+	public String getPDFURL() {
+		return PDFURL;
+	}
+	public void setPDFURL(String pDFURL) {
+		PDFURL = pDFURL;
 	}
 
 
@@ -70,6 +80,9 @@ public class Category implements Serializable {
 	
 	@Column(name = "image_url")
 	private String imageURL;
+	
+	@Column(name = "PDF_url")
+	private String PDFURL;
 	
 	@Column(name = "is_active")
 	private boolean active = true;

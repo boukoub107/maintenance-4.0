@@ -5,6 +5,7 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
+<spring:url var="images" value="/resources/pdf" />
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
@@ -19,7 +20,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Maintenance - ${title}</title>
+<title>Maintenance login - ${title}</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">

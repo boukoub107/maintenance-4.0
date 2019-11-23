@@ -84,6 +84,17 @@ $(function() {
 								}
 							},
 							{
+								data : 'pdf',
+								bSortable : false,
+								mRender : function(data, type, row) {
+
+									return '<iframe src="' + window.contextRoot
+									+ '/resources/pdf/' + data
+									+ '.pdf" width="80px" height="100px"/></iframe>';
+
+								}
+							},
+							{
 								data : 'name'
 							},
 							{
@@ -98,9 +109,11 @@ $(function() {
 							{
 								data : 'quantity',
 								mRender : function(data, type, row) {
-
-									if (data < 1) {
-										return '<span style="color:red">Out of Stock!</span>';
+									if (data == 0) {
+										return '<span style="color:red">less than three!</span>';
+									}	
+									else if (data > 0 && data < 3) {
+										return + data +'<span class="bg-warning text-white" style="color:orange"> Out of Stock!</span>';
 									}
 
 									return data;
@@ -129,7 +142,7 @@ $(function() {
 													+ window.contextRoot
 													+ '/cart/add/'
 													+ data
-													+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+													+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></a>';
 										}
 									}
 									else {
@@ -178,6 +191,15 @@ $(function() {
 										+ '.jpg" class="dataTableImg"/>';					           			
 					           		}
 					           	},
+					        	{data: 'pdf',
+						           	 bSortable: false,
+						           		mRender: function(data,type,row) {
+						           			return '<iframe src="' + window.contextRoot
+											+ '/resources/pdf/' + data
+											+ '.pdf" width="80px" height="100px"/></iframe>';
+						           						           			
+						           		}
+						           	},
 					           	{
 									data : 'name'
 								},

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import maintenance.util.FileUtil;
+import maintenance.util.*;
 import mantenance.validator.ProductValidator;
 import net.mant.maintenanceBackend.dao.CategoryDAO;
 import net.mant.maintenanceBackend.dao.ProductDAO;
@@ -95,9 +95,10 @@ public class ManagementController {
 		}
 		else {
 			// edit check only when the file has been selected
-			if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			if(!mProduct.getFile().getOriginalFilename().equals("") && !mProduct.getFilpdf().getOriginalFilename().equals(""))
+					 {
 				new ProductValidator().validate(mProduct, results);
-			}			
+			}	
 		}
 		
 		if(results.hasErrors()) {
@@ -114,16 +115,19 @@ public class ManagementController {
 			productDAO.update(mProduct);
 		}
 	
-		 //upload the file
-		 if(!mProduct.getFile().getOriginalFilename().equals("") ){
+		 //upload the file and filpdf
+		 if(!mProduct.getFile().getOriginalFilename().equals("")	||	!mProduct.getFilpdf().getOriginalFilename().equals("")) {
 			FileUtil.uploadFile(request, mProduct.getFile(), mProduct.getCode()); 
+			FilePdf.uploadFilePDF(request, mProduct.getFilpdf(), mProduct.getPdf()); 
+			System.out.println("ccoc:"+mProduct.getFile()+" "+mProduct.getCode());
+			System.out.println("ccac:"+mProduct.getFilpdf()+" "+mProduct.getPdf());
+
 		 }
 		
 		return "redirect:/manage/product?success=product";
 	}
 
-	
-	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.GET)
+	 @RequestMapping(value = "/product/{id}/activation", method=RequestMethod.GET)
 	@ResponseBody
 	public String managePostProductActivation(@PathVariable int id) {		
 		Product product = productDAO.get(id);

@@ -29,6 +29,7 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
+	private String PDF;
 	@NotBlank(message = "Please enter the product name!")
 	private String name;
 	@NotBlank(message = "Please enter the brand name!")
@@ -62,19 +63,40 @@ public class Product implements Serializable {
 		this.file = file;
 	}
 
+	@Transient
+	private MultipartFile filpdf;
+	
+	public MultipartFile getFilpdf() {
+		return filpdf;
+	}
 
+	public void setFilpdf(MultipartFile filpdf) {
+		this.filpdf = filpdf;
+	}
+	
 	// default constructor
 	public Product() {
 		
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
+		this.PDF = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
 		
 	}
 	
 	
 	// setters and getters	
+
+	
 	public int getId() {
 		return id;
 	}
+	public String getPdf() {
+		return PDF;
+	}
+
+	public void setPdf(String pdf) {
+		this.PDF = pdf;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -149,13 +171,14 @@ public class Product implements Serializable {
 		this.views = views;
 	}
 
-	
-	// toString for debugging
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
-				+ description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", active=" + active
-				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
-				+ views + "]";
+		return "Product [id=" + id + ", code=" + code + ", PDF=" + PDF + ", name=" + name + ", brand=" + brand
+				+ ", description=" + description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", active="
+				+ active + ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases
+				+ ", views=" + views + ", file=" + file + ", filpdf=" + filpdf + "]";
 	}
+
+	
+	
 }
