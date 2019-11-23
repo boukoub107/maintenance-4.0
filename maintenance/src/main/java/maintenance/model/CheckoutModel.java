@@ -23,6 +23,8 @@ public class CheckoutModel implements Serializable {
 	private OrderDetail orderDetail;
 	private double checkoutTotal;
 
+	
+	
 	public OrderDetail getOrderDetail() {
 		return orderDetail;
 	}
